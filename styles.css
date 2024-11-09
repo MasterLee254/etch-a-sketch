@@ -28,18 +28,14 @@ body {
 }
 
 #gridContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    display: grid; /* Changed to CSS grid for a perfect square grid layout */
+    margin-top: 20px;
     width: 960px;
     height: 960px;
-    margin-top: 20px;
+    gap: 0; /* Optional: add space between squares if desired */
 }
 
 .gridSquare {
-    flex: 0 0 6.25%; /* This makes sure we have 16 items per row in 960px container (100 / 16 = 6.25%) */
-    height: 6.25%;
     border: 1px solid #ddd;
     background-color: #fff;
     transition: background-color 0.3s, opacity 0.2s ease;
