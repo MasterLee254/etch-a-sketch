@@ -4,23 +4,25 @@ function createGrid(size) {
     gridContainer.innerHTML = ''; // Clear the grid before generating a new one
 
     const totalSquares = size * size;
-    const squareSize = 960 / size; // The size of each square based on the grid size
+    const squareSize = 960 / size; // Calculate the size of each square in pixels
 
     for (let i = 0; i < totalSquares; i++) {
         const square = document.createElement('div');
         square.classList.add('gridSquare');
+        square.style.width = `${squareSize}px`; // Set width dynamically
+        square.style.height = `${squareSize}px`; // Set height dynamically
         gridContainer.appendChild(square);
 
-        let opacity = 1; // Initial opacity for the "darkening" effect
+        let opacity = 0; // Initial opacity for the "lightening" effect
 
         square.addEventListener('mouseover', () => {
             // Random color effect
             const randomColor = `rgb(${getRandomInt(0, 256)}, ${getRandomInt(0, 256)}, ${getRandomInt(0, 256)})`;
             square.style.backgroundColor = randomColor;
 
-            // Progressive darkening effect
-            opacity -= 0.1;
-            if (opacity < 0) opacity = 0;
+            // Progressive lightening effect
+            opacity += 0.1;
+            if (opacity > 1) opacity = 1;
             square.style.opacity = opacity;
         });
     }
