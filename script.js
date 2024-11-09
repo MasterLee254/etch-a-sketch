@@ -1,5 +1,3 @@
-// script.js
-
 // Function to create the grid dynamically
 function createGrid(size) {
     const gridContainer = document.getElementById('gridContainer');
